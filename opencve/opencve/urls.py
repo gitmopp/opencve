@@ -5,6 +5,7 @@ from users.views import register, CustomLoginView
 
 
 urlpatterns = [
+    path("__debug__/", include("debug_toolbar.urls")),
     path("", include("core.urls")),
     path("register/", register, name="register"),
     path("accounts/", include("users.urls")),

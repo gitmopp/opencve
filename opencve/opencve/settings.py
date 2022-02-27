@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.postgres",
+    "debug_toolbar",
     "crispy_forms",
     "core",
+    "changes",
     "users",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -153,3 +157,10 @@ AUTH_USER_MODEL = "users.User"
 
 # Email backend
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Internal IPs
+INTERNAL_IPS = ["127.0.0.1"]
+
+### OpenCVE settings ###
+
+COUNT_EXCERPT = 3

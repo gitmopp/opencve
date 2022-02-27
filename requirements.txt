@@ -5,3 +5,5 @@ click==8.0.3
 psycopg2-binary==2.9.3
 requests==2.27.1
 untangle==1.1.1
+arrow==1.2.2
+nested_lookup==0.2.23

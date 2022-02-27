@@ -7,7 +7,7 @@
 <section class="content-header">
     <h1>Categories (CWE)</h1>
     <ol class="breadcrumb">
-        <li><a href="#">OpenCVE</a></li>
+        <li><a href="{% url 'home' %}">OpenCVE</a></li>
         <li class="active">Categories (CWE)</li>
     </ol>
 </section>
@@ -39,8 +39,7 @@
                                        target="_blank" class="btn btn-xs btn-default"><i
                                             class="fa fa-external-link"></i> Mitre</a>
                                     {% endif %}
-                                    <a href="#"
-                                       class="btn btn-xs btn-default"><i class="fa fa-shield"></i> View CVE</a>
+                                    <a href="{% url 'cves' %}?cwe={{ cwe.cwe_id }}" class="btn btn-xs btn-default"><i class="fa fa-shield"></i> View CVE</a>
                                 </div>
                             </td>
                         </tr>
@@ -58,11 +57,11 @@
                                     <a href="?page=1">&laquo; first</a>
                                     <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                                 {% endif %}
-                        
+
                                 <span class="current">
                                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                                 </span>
-                        
+
                                 {% if page_obj.has_next %}
                                     <a href="?page={{ page_obj.next_page_number }}">next</a>
                                     <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
@@ -100,5 +99,5 @@
 
     </div>
 </section>
-    
+
 {% endblock %}

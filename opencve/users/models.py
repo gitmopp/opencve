@@ -18,7 +18,6 @@ def get_default_filters():
     }
 
 
-
 def get_default_settings():
     return {"activities_view": "all"}
 
@@ -28,11 +27,14 @@ class User(AbstractUser):
         db_table = "opencve_users"
 
     class FrequencyNotification(models.TextChoices):
-        ONCE = 'once', "Once a day"
-        ALWAYS = 'always', 'As soon as a change is detected'
-
+        ONCE = "once", "Once a day"
+        ALWAYS = "always", "As soon as a change is detected"
 
     enable_notifications = models.BooleanField(default=True)
     filters_notifications = models.JSONField(default=get_default_filters)
     settings = models.JSONField(default=get_default_settings)
-    frequency_notifications = models.CharField(max_length=6, choices=FrequencyNotification.choices, default=FrequencyNotification.ALWAYS)
+    frequency_notifications = models.CharField(
+        max_length=6,
+        choices=FrequencyNotification.choices,
+        default=FrequencyNotification.ALWAYS,
+    )
